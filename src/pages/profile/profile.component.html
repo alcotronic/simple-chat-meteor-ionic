@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="purple">
+    <ion-buttons start>
+      <button ion-button icon-only color="light" menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Simple Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div *ngIf="!edit">
+    <h1 ion-text color="light">{{username}}</h1>
+    <ion-avatar>
+      <img *ngIf="picture" [src]="picture">
+      <img *ngIf="!picture" src="assets/imgs/avatar.png">
+    </ion-avatar>
+    <ion-row>
+      <ion-col>
+        <p ion-text color="light">
+          Email:
+        </p>
+      </ion-col>
+      <ion-col>
+        <p ion-text color="light">
+          {{email}}
+        </p>
+      </ion-col>
+    </ion-row>
+    <button ion-button color="purple" (click)="editProfile()">Edit</button>
+  </div>
+  <div *ngIf="edit">
+    <h1 ion-text color="light">Edit your Profile</h1>
+    <ion-avatar>
+      <img src="assets/imgs/avatar.png">
+      <p ion-text color="light">
+        Select your profile picture.
+      </p>
+    </ion-avatar>
+
+    <form>
+      <div class="form-group">
+        <ion-label for="username" color="light">Username</ion-label>
+        <ion-input id="username" class="form-control" type="text" placeholder="{{username}}" value="{{username}}"></ion-input>
+      </div>
+      <div class="form-group">
+        <ion-label for="email" color="light">Email</ion-label>
+        <ion-input id="email" class="form-control" type="text" placeholder="{{email}}" value="{{email}}"></ion-input>
+      </div>
+      <button ion-button type="submit" color="purple" (click)="saveProfile()">Save</button>
+      <button ion-button color="purple" (click)="cancle()">Cancle</button>
+    </form>
+  </div>
+</ion-content>

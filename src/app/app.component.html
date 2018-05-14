@@ -1,0 +1,36 @@
+<ion-menu [content]="menucontent">
+  <ion-header>
+    <ion-toolbar color="purple">
+      <ion-title>Menu</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only color="light" menuClose>
+          <ion-icon name="close"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding-top>
+    <ion-list no-lines>
+      <button ion-item detail-none (click)="goToChats()">
+        <ion-icon name="chatbubbles" color="light" item-start></ion-icon>
+        <div ion-text color="light">
+          Chats
+        </div>
+      </button>
+      <button ion-item detail-none (click)="goToSettings()">
+        <ion-icon name="settings" color="light" item-start></ion-icon>
+        <div ion-text color="light">
+          Settings
+        </div>
+      </button>
+      <button ion-item detail-none (click)="logout()">
+        <ion-icon name="log-out" color="light" item-start></ion-icon>
+        <div ion-text color="light">
+          Logout
+        </div>
+      </button>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav id="nav" #menucontent [root]="rootPage"></ion-nav>

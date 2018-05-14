@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="purple">
+    <ion-buttons start>
+      <button ion-button icon-only color="light" menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Simple Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-list>
+    <ion-list-header no-lines>
+      <button ion-item  detail-none (click)="goToEditProfile()">
+        <ion-avatar item-start>
+          <img src="assets/imgs/avatar.png">
+        </ion-avatar>
+  			<h1 ion-text color="light">{{username}}</h1>
+  	  </button>
+    </ion-list-header>
+    <button ion-item (click)="goToEditAccount()">
+			<ion-icon name="person" color="light" item-start></ion-icon>
+			<h1 ion-text color="light">Account</h1>
+	  </button>
+    <button ion-item (click)="goToEditPassword()">
+			<ion-icon name="key" color="light" item-start></ion-icon>
+			<h1 ion-text color="light">Password</h1>
+	  </button>
+  </ion-list>
+</ion-content>

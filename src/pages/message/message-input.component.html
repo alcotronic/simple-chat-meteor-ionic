@@ -1,0 +1,16 @@
+<ion-toolbar color="purple">
+  <form class="form-inline" [formGroup]="newMessageForm" #formDir="ngForm">
+    <div class="form-group">
+      <ion-row>
+        <ion-col col-10>
+          <ion-input id="text" class="form-control" type="text" formControlName="text" placeholder="Message text" required></ion-input>
+        </ion-col>
+        <ion-col col-2>
+          <button ion-button icon-only type="submit" (click)="sendMessage()">
+            <ion-icon name="send" color="light"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </form>
+</ion-toolbar>

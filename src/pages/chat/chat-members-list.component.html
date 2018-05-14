@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="purple">
+    <ion-buttons start>
+      <button ion-button icon-only color="light" navPop>
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{chat.title}}</ion-title>
+    <ion-buttons end *ngIf="isChatOwner()">
+      <button ion-button icon-only color="light" (click)="openChatMembersAdd()">
+        <ion-icon name="person-add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+	<ion-list *ngIf="chatMembers">
+		<button ion-item no-lines *ngFor="let chatMember of chatMembers | async">
+      <ion-avatar item-start>
+        <img src="assets/imgs/avatar.png">
+      </ion-avatar>
+			<h5 ion-text color="light">{{chatMember.name}}</h5>
+	  </button>
+	</ion-list>
+</ion-content>

@@ -1,0 +1,21 @@
+<div class="signin container">
+  <form [formGroup]="signinForm" #formDir="ngForm">
+    <ion-list no-lines>
+      <ion-item>
+        <ion-label color="light" stacked>Email address</ion-label>
+        <ion-input type="email" formControlName="email" placeholder="Email" required></ion-input>
+        <div [hidden]="!formDir.submitted" *ngIf="signinForm.get('email').invalid && (signinForm.get('email').pristine || signinForm.get('email').untouched)" class="alert alert-danger">
+          Email required.
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label color="light" stacked>Password</ion-label>
+        <ion-input type="password" formControlName="password" placeholder="Password" required></ion-input>
+        <div [hidden]="!formDir.submitted" *ngIf="signinForm.get('password').invalid && (signinForm.get('password').pristine || signinForm.get('password').untouched)" class="alert alert-danger">
+          Password is required.
+        </div>
+      </ion-item>
+    </ion-list>
+    <button ion-button color="purple" type="submit" (click)="signin()">SignIn</button>
+  </form>
+</div>

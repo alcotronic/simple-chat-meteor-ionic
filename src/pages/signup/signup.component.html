@@ -1,0 +1,28 @@
+<div class="signup container">
+  <form [formGroup]="signupForm" #formDir="ngForm">
+      <ion-list no-lines>
+        <ion-item>
+          <ion-label color="light" stacked>Username</ion-label>
+          <ion-input type="username" formControlName="username" placeholder="Username" required></ion-input>
+          <div [hidden]="!formDir.submitted" *ngIf="signupForm.get('username').invalid && (signupForm.get('username').pristine || signupForm.get('username').untouched)" class="alert alert-danger">
+            Username required.
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label color="light" stacked>Email address</ion-label>
+          <ion-input type="email" formControlName="email" placeholder="Email" required></ion-input>
+          <div [hidden]="!formDir.submitted" *ngIf="signupForm.get('email').invalid && (signupForm.get('email').pristine || signupForm.get('email').untouched)" class="alert alert-danger">
+            Email required.
+          </div>
+        </ion-item>
+        <ion-item>
+          <ion-label color="light" stacked>Password</ion-label>
+          <ion-input type="password" formControlName="password" placeholder="Password" required></ion-input>
+          <div [hidden]="!formDir.submitted" *ngIf="signupForm.get('password').invalid && (signupForm.get('password').pristine || signupForm.get('password').untouched)" class="alert alert-danger">
+            Password is required.
+          </div>
+        </ion-item>
+      </ion-list>
+      <button ion-button color="purple" type="submit" (click)="signup()">SignUp</button>
+  </form>
+</div>

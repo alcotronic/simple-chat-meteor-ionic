@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar color="purple">
+    <ion-buttons start>
+      <button ion-button icon-only color="light" navPop>
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>New Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="newChatForm" #formDir="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label for="title" color="light" stacked>Title for the new chat:</ion-label>
+        <ion-input id="title" type="text" formControlName="title" placeholder="Enter title" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button type="submit" color="purple" (click)="createChat()">Create</button>
+  </form>
+</ion-content>

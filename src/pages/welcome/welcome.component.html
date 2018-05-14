@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="purple">
+    <ion-title>Simple Chat</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <div text-center>
+    <ion-icon name="chatbubbles" ios="ios-chatbubbles" md="ios-chatbubbles" color="purple" style="zoom:4.0;"></ion-icon>
+  </div>
+  <ion-segment color="purple" margin-top [(ngModel)]="signinOrSignup">
+    <ion-segment-button value="signin">
+      SignIn
+    </ion-segment-button>
+    <ion-segment-button value="signup">
+      SignUp
+    </ion-segment-button>
+  </ion-segment>
+  <div margin-top [ngSwitch]="signinOrSignup">
+    <signin-component *ngSwitchCase="'signin'"></signin-component>
+    <signup-component *ngSwitchCase="'signup'"></signup-component>
+  </div>
+</ion-content>

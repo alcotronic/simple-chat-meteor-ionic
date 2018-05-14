@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="purple">
+    <ion-buttons start>
+      <button ion-button icon-only color="light" navPop>
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <form [formGroup]="newEmailForm" #formDir="ngForm">
+    <ion-list>
+      <ion-item>
+        <ion-label color="light" stacked>Email</ion-label>
+        <ion-input type="text" formControlName="email" placeholder="{{email}}" value="{{email}}" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button type="submit" color="purple" (click)="changeEmail()">Save</button>
+    <button ion-button color="purple" navPop>Cancle</button>
+  </form>
+</ion-content>

@@ -1,0 +1,36 @@
+<div class="messages-list container">
+	<div *ngFor="let message of messages | async">
+		<ion-row *ngIf="fromCurrentUser(message)">
+		  <ion-col col-1>
+		  </ion-col>
+		  <ion-col col-11>
+		    <ion-card>
+		      <ion-item>
+		        <ion-avatar item-start>
+		          <img src="assets/imgs/avatar.png">
+		        </ion-avatar>
+		        <h4 ion-text>{{message.senderName}}</h4>
+		        <p ion-text>{{message.text}}</p>
+		        <p ion-text>{{message.createdAt | date : 'medium'}}</p>
+		      </ion-item>
+		    </ion-card>
+		  </ion-col>
+		</ion-row>
+		<ion-row *ngIf="!fromCurrentUser(message)">
+		  <ion-col col-11>
+		    <ion-card>
+		      <ion-item>
+		        <ion-avatar item-start>
+		          <img src="assets/imgs/avatar.png">
+		        </ion-avatar>
+		        <h4 ion-text>{{message.senderName}}</h4>
+		        <p ion-text>{{message.text}}</p>
+		        <p ion-text>{{message.createdAt | date : 'medium'}}</p>
+		      </ion-item>
+		    </ion-card>
+		  </ion-col>
+		  <ion-col col-1>
+		  </ion-col>
+		</ion-row>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+signup-component {
+
+  .item-ios, .item-md, .item-wp {
+    background-color: #343a40 !important;
+  }
+
+  .item-md.input-has-focus {
+    .item-inner {
+      border-bottom-color: #af3dcb !important;
+      box-shadow: inset 0 -1px 0 0 #af3dcb !important;
+    }
+  }
+
+  .item-md.input-has-focus:last-child {
+    border-bottom-color: #af3dcb !important;
+    box-shadow: inset 0 -1px 0 0 #af3dcb !important;
+  }
+
+  .item-md.item-input-has-focus {
+    .label {
+        color: #af3dcb !important;
+    }
+  }
+
+  .item-wp {
+    .text-input {
+      border-color: #f4f4f4 !important;
+    }
+  }
+
+  .item-wp.item-input-has-focus {
+    .label {
+        color: #af3dcb !important;
+    }
+    .text-input {
+      border-color: #af3dcb !important;
+    }
+  }
+
+  .input {
+    color: #f4f4f4;
+  }
+
+  .alert {
+    margin-top: 5px;
+    color: #af3dcb;
+  }
+}
