@@ -3,7 +3,6 @@ import { Meteor } from "meteor/meteor";
 import { NavController } from 'ionic-angular';
 
 import { AuthGuardService } from '../../providers/auth/auth-guard.service';
-
 import { SettingsAccountComponent } from './settings-account.component';
 import { SettingsProfileComponent } from './settings-profile.component';
 import { SettingsPasswordComponent } from './settings-password.component';

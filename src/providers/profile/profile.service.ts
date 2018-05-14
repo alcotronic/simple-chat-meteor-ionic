@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MeteorObservable, ObservableCursor } from 'meteor-rxjs';
+import { MeteorObservable } from 'meteor-rxjs';
 
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -15,31 +15,12 @@ export class ProfileService {
 
   constructor() {
     console.log('ProfileService#constructor called');
-
-  }
-
-  getCurrentUserProfile(): Observable<Profile> {
-    console.log('ProfileService#getCurrentUserProfile called');
-    MeteorObservable.subscribe('profileCurrentUser').subscribe(() => {
-      MeteorObservable.autorun().subscribe(() => {
-        this.profileCurrentUser = of(Profiles.findOne({userId: Meteor.userId()}));
-      });
-    });
-    return this.profileCurrentUser;
+    MeteorObservable.subscribe('profile');
   }
 
   getProfile(profileId: string): Observable<Profile> {
     console.log('ProfileService#getProfile called');
-    MeteorObservable.subscribe('profile').subscribe(() => {
-      MeteorObservable.autorun().subscribe(() => {
-        this.profile = of(Profiles.findOne({_id: profileId}));
-      });
-    });
-    return this.profile;
-  }
-
-  updateProfile(profile: Profile) {
-    console.log('ProfileService#updateProfile called');
+    return of(Profiles.findOne({_id: profileId}));
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Meteor } from "meteor/meteor";
 import { MeteorObservable } from 'meteor-rxjs';
 import { NavController, NavParams } from 'ionic-angular';
@@ -66,4 +66,5 @@ export class ChatMembersListComponent implements OnInit {
       return false;
     }
   }
+
 }

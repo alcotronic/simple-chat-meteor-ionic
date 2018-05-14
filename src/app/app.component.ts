@@ -20,7 +20,7 @@ export class AppComponennt {
 
   constructor(private authGuardService: AuthGuardService, private authenticationService: AuthenticationService, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, public menu: MenuController) {
 
-    if(authGuardService.isLoggedIn()) {
+    if(this.authGuardService.isLoggedIn()) {
       this.rootPage = ChatsComponent;
       menu.enable(true);
     } else {

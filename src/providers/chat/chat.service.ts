@@ -28,9 +28,9 @@ export class ChatService {
     return this.chats;
   }
 
-  getChat(id: string): Observable<Chat> {
-    console.log('ChatService#getChat called for id: '+id);
-    return of(Chats.findOne({_id: id}));
+  getChat(chatId: string): Observable<Chat> {
+    console.log('ChatService#getChat called for chatId: '+chatId);
+    return of(Chats.findOne({_id: chatId}));
   }
 
   createChat(chat: Chat): Promise<void> {

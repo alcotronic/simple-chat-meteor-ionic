@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AlertController, MenuController, NavController } from 'ionic-angular';
+import { MenuController, NavController } from 'ionic-angular';
 
 
 import { ChatsComponent } from '../chats/chats.component';
+import { ToastService } from '../../providers/toast/toast.service';
 import { AuthGuardService } from '../../providers/auth/auth-guard.service';
 import { AuthenticationService } from '../../providers/auth/authentication.service';
 
@@ -18,9 +19,9 @@ export class SigninComponent implements OnInit {
   signinData = {email: '', password: ''}
 
   constructor(
+    private toastService: ToastService,
     private authGuardService: AuthGuardService,
     private authenticationService: AuthenticationService,
-    private alertController: AlertController,
     public menu: MenuController,
     public navController: NavController
   ) {}
@@ -49,20 +50,11 @@ export class SigninComponent implements OnInit {
         console.log(error.message);
       });
     } else if(this.signinForm.get('email').invalid && this.signinForm.get('password').valid) {
-      this.presentAlert('Email required!');
+      this.toastService.showToast('Email required!');
     } else if(this.signinForm.get('email').valid && this.signinForm.get('password').invalid) {
-      this.presentAlert('Password required!');
+      this.toastService.showToast('Password required!');
     } else {
-      this.presentAlert('Email and password required!');
+      this.toastService.showToast('Email and password required!');
     }
-  }
-
-  presentAlert(title: string) {
-    let alert = this.alertController.create({
-      title: title,
-      cssClass: 'alert-signin',
-      buttons: ['Ok']
-    });
-    alert.present();
   }
 }

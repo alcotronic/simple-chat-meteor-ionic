@@ -16,10 +16,7 @@ export class ChatsListComponent implements OnInit {
 
   private chats: Observable<Chat[]>;
 
-  constructor(private authGuardService: AuthGuardService,
-    private navController: NavController,
-    private chatService: ChatService) {    
-  }
+  constructor(private authGuardService: AuthGuardService, private navController: NavController, private chatService: ChatService) {}
 
   ngOnInit() {
     console.log('ChatsListComponent#ngOnInit called');

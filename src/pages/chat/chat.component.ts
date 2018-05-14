@@ -1,6 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Meteor } from "meteor/meteor";
-import { MeteorObservable } from 'meteor-rxjs';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { Chat } from '../../api/models/chat.model';
