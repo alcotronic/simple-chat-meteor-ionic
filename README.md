@@ -69,11 +69,19 @@ You need to start both, ionic serve for the app and meteor for the api.
 In one terminal in the project folder start the app with:
 
 ```
-npm ionic:serve:lab
+npm run ionic:serve:lab
+```
+As an alternative you can run the app on an android emulator or device. Check Ionic documentation for dependencies installation like android-sdk. Keep in mind that you have to set your hostname/ip in the settings files so that your emulator or device can connect correctly.
+
+```
+npm run ionic:emulator:android
+```
+```
+npm run ionic:device:android
 ```
 
 In a second terminal in the project folder start meteor with:
 
 ```
-npm meteor
+npm run meteor
 ```
