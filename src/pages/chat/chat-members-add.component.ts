@@ -5,11 +5,11 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { Observable } from 'rxjs/Observable';
 
-import { Chat } from '../../api/models/chat.model';
-import { Profile } from '../../api/models/profile.model';
-import { Profiles } from '../../api/collections/profiles.collection';
-
+import { Chat } from '../../../api/models/chat.model';
+import { Profile } from '../../../api/models/profile.model';
+import { Profiles } from '../../../api/collections/profiles.collection';
 import { AuthGuardService } from '../../providers/auth/auth-guard.service';
+import { ChatService } from '../../providers/chat/chat.service';
 
 @Component({
   selector: 'chat-members-add-component',
@@ -18,29 +18,36 @@ import { AuthGuardService } from '../../providers/auth/auth-guard.service';
 export class ChatMembersAddComponent implements OnInit {
 
   private chat: Chat;
+  chatId: string;
   private users: Observable<Profile[]>;
   private selectedUserIds: Array<string> = [];
 
   constructor(private authGuardService: AuthGuardService,
+      private chatService: ChatService,
       public navController: NavController,
       public navParams: NavParams) {
     console.log('ChatMembersAddComponent#constructor called');
-    this.chat = navParams.get('chat');
+    this.chatId = navParams.get('chatId');
   }
 
   ngOnInit() {
     console.log('ChatMembersAddComponent#ngOnInit called');
+    this.chatService.getChat(this.chatId)
+      .subscribe(chat => this.chat = chat);
+  }
 
+  ionViewCanEnter(): boolean {
+    return this.authGuardService.isLoggedIn();
+  }
+
+  ionViewWillEnter() {
+    this.chatService.getChat(this.chatId)
+      .subscribe(chat => this.chat = chat);
     MeteorObservable.subscribe('chatMembersNew', this.chat._id).subscribe(()=> {
       MeteorObservable.autorun().subscribe(() => {
         this.users = this.findChatMembersNew();
       });
     });
-
-  }
-
-  ionViewCanEnter(): boolean {
-    return this.authGuardService.isLoggedIn();
   }
 
   findChatMembersNew(): Observable<Profile[]> {

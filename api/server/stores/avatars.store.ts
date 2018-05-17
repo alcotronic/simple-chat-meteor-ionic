@@ -1,9 +1,9 @@
+import { Meteor } from 'meteor/meteor';
 import { UploadFS } from 'meteor/jalik:ufs';
 import { GridFSStore } from 'meteor/jalik:ufs-gridfs';
-import gm from 'gm';
 
-import { Avatar, DEFAULT_AVATAR_URL } from '../models/avatar.model';
-import { Avatars } from '../collections/avatars.collection';
+import { Avatars } from '../../collections/avatars.collection';
+import { Profiles } from '../../collections/profiles.collection';
 
 function loggedIn(userId): boolean {
   return !!userId;
@@ -18,7 +18,7 @@ function avatarOwner(userId, doc): boolean {
   return false;
 }
 
-const AvatarsStore = new GridFSStore({
+export const AvatarsStore = new GridFSStore({
     collection: Avatars.collection,
     name: 'avatars',
     path: '/uploads/avatar',
@@ -32,6 +32,10 @@ const AvatarsStore = new GridFSStore({
         minSize: 1,
         maxSize: 1024 * 5000, // 5MB,
         contentTypes: ['image/*'],
-        extensions: ['jpg', 'png']
-    })
+        extensions: ['png']
+    }),
+    onFinishUpload(file) {
+      console.log('Uploaded userId: '+Meteor.userId()+' file: '+file.name+' id: '+file._id);
+      Profiles.update({ userId: Meteor.userId() }, { $set: { pictureId: file._id, pictureUrl: file.url }})
+    }
 });

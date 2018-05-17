@@ -4,9 +4,9 @@ import { MeteorObservable } from 'meteor-rxjs';
 
 import { Observable } from 'rxjs/Observable';
 
-import { Message } from '../../api/models/message.model';
-import { Messages } from '../../api/collections/messages.collection';
-import { Profiles } from '../../api/collections/profiles.collection';
+import { Message } from '../../../api/models/message.model';
+import { Messages } from '../../../api/collections/messages.collection';
+import { Profiles } from '../../../api/collections/profiles.collection';
 import { AuthGuardService } from '../../providers/auth/auth-guard.service';
 
 @Component({
@@ -46,6 +46,7 @@ export class MessagesListComponent implements OnInit {
         const profile = Profiles.findOne({userId: message.senderId});
         if(profile) {
           message.senderName = profile.name;
+          message.senderPictureUrl = profile.pictureUrl;
         }
       });
       return messages;

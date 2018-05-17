@@ -7,7 +7,7 @@
 		    <ion-card>
 		      <ion-item>
 		        <ion-avatar item-start>
-		          <img src="assets/imgs/avatar.png">
+		          <img [src]="message.senderPictureUrl">
 		        </ion-avatar>
 		        <h4 ion-text>{{message.senderName}}</h4>
 		        <p ion-text>{{message.text}}</p>
@@ -21,7 +21,7 @@
 		    <ion-card>
 		      <ion-item>
 		        <ion-avatar item-start>
-		          <img src="assets/imgs/avatar.png">
+		          <img [src]="message.senderPictureUrl">
 		        </ion-avatar>
 		        <h4 ion-text>{{message.senderName}}</h4>
 		        <p ion-text>{{message.text}}</p>

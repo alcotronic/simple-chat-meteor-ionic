@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { ActionSheetController, NavController, NavParams, } from 'ionic-angular';
 
-import { Chat } from '../../api/models/chat.model';
+import { Chat } from '../../../api/models/chat.model';
 import { ChatMembersListComponent } from './chat-members-list.component';
-import { ChatService } from '../../providers/chat/chat.service';
-
 import { AuthGuardService } from '../../providers/auth/auth-guard.service';
+import { ChatService } from '../../providers/chat/chat.service';
 
 @Component({
   selector: 'chat-component',
@@ -17,9 +16,11 @@ export class ChatComponent implements OnInit {
 
   constructor(
     private authGuardService: AuthGuardService,
+    private chatService: ChatService,
     public navController: NavController,
     public navParams: NavParams,
-    private chatService: ChatService
+    public actionSheetController: ActionSheetController
+
   ) {
     this.chatId = navParams.get('chatId');
   }
@@ -34,7 +35,36 @@ export class ChatComponent implements OnInit {
     return this.authGuardService.isLoggedIn();
   }
 
+  ionViewWillEnter() {
+    this.chatService.getChat(this.chatId)
+      .subscribe(chat => this.chat = chat);
+  }
+
+  openChatMenu() {
+    let chatMenu = this.actionSheetController.create({
+      title: 'Chat settings',
+      cssClass: 'alert-signin',
+      buttons: [{
+        text: 'Rename chat',
+        handler: () => {
+          console.log('Rename chat clicked');
+        }
+      },{
+        text: 'Delete chat',
+        handler: () => {
+          console.log('Delete chat clicked');
+        }
+      },{
+        text: 'Cancel',
+        handler: () => {
+          console.log('Cancel clicked');
+        }
+      }]
+    });
+    chatMenu.present();
+  }
+
   goToChatMembers() {
-    this.navController.push(ChatMembersListComponent, {chat: this.chat});
+    this.navController.push(ChatMembersListComponent, {chatId: this.chatId});
   }
 }

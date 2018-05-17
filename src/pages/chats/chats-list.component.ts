@@ -3,7 +3,7 @@ import { NavController } from 'ionic-angular';
 
 import { Observable } from 'rxjs/Observable';
 
-import { Chat } from '../../api/models/chat.model';
+import { Chat } from '../../../api/models/chat.model';
 import { ChatComponent } from '../chat/chat.component';
 import { ChatService } from '../../providers/chat/chat.service';
 import { AuthGuardService } from '../../providers/auth/auth-guard.service';

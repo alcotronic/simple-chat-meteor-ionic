@@ -5,8 +5,8 @@ import { of } from 'rxjs/observable/of';
 
 import { MeteorObservable, ObservableCursor } from 'meteor-rxjs';
 
-import { Chat } from '../../api/models/chat.model';
-import { Chats } from '../../api/collections/chats.collection';
+import { Chat } from '../../../api/models/chat.model';
+import { Chats } from '../../../api/collections/chats.collection';
 
 @Injectable()
 export class ChatService {

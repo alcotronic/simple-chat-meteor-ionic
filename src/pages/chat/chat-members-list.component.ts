@@ -7,12 +7,12 @@ import { Observable } from 'rxjs/Observable';
 
 import { ChatMembersAddComponent } from './chat-members-add.component';
 
-import { Chat } from '../../api/models/chat.model';
-import { Chats } from '../../api/collections/chats.collection';
-import { Profile } from '../../api/models/profile.model';
-import { Profiles } from '../../api/collections/profiles.collection';
-
+import { Chat } from '../../../api/models/chat.model';
+import { Chats } from '../../../api/collections/chats.collection';
+import { Profile } from '../../../api/models/profile.model';
+import { Profiles } from '../../../api/collections/profiles.collection';
 import { AuthGuardService } from '../../providers/auth/auth-guard.service';
+import { ChatService } from '../../providers/chat/chat.service';
 
 @Component({
   selector: 'chat-members-list-component',
@@ -21,27 +21,38 @@ import { AuthGuardService } from '../../providers/auth/auth-guard.service';
 export class ChatMembersListComponent implements OnInit {
 
   chat: Chat;
+  chatId: string;
   private chatMembers: Observable<Profile[]>;
 
   constructor(
       private authGuardService: AuthGuardService,
+      private chatService: ChatService,
       public navController: NavController,
       public navParams: NavParams) {
     console.log('ChatMembersListComponent#constructor called');
-    this.chat = navParams.get('chat');
+    this.chatId = navParams.get('chatId');
   }
 
   ngOnInit() {
     console.log('ChatMembersListComponent#ngOnInit called');
+    this.chatService.getChat(this.chatId)
+      .subscribe(chat => this.chat = chat);
+  }
+
+  ionViewCanEnter(): boolean {
+    console.log('ChatMembersListComponent#ionViewCanEnter called');
+    return this.authGuardService.isLoggedIn();
+  }
+
+  ionViewWillEnter() {
+    console.log('ChatMembersListComponent#ionViewWillEnter called');
+    this.chatService.getChat(this.chatId)
+      .subscribe(chat => this.chat = chat);
     MeteorObservable.subscribe('chatMembers', this.chat._id).subscribe(()=> {
       MeteorObservable.autorun().subscribe(() => {
         this.chatMembers = this.findChatMembers();
       });
     });
-  }
-
-  ionViewCanEnter(): boolean {
-    return this.authGuardService.isLoggedIn();
   }
 
   findChatMembers(): Observable<Profile[]> {
@@ -56,7 +67,7 @@ export class ChatMembersListComponent implements OnInit {
 
   openChatMembersAdd() {
     console.log('ChatMembersListComponent#openChatMembersAdd called');
-    this.navController.push(ChatMembersAddComponent, {chat: this.chat});
+    this.navController.push(ChatMembersAddComponent, {chatId: this.chatId});
   }
 
   isChatOwner(): boolean {

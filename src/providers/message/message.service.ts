@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { MeteorObservable } from 'meteor-rxjs';
 
-import { Message } from '../../api/models/message.model';
+import { Message } from '../../../api/models/message.model';
 
 @Injectable()
 export class MessageService {

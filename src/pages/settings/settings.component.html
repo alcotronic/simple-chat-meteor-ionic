@@ -13,7 +13,8 @@
     <ion-list-header no-lines>
       <button ion-item  detail-none (click)="goToEditProfile()">
         <ion-avatar item-start>
-          <img src="assets/imgs/avatar.png">
+          <img *ngIf="!picture" src="assets/imgs/avatar.png">
+          <img *ngIf="picture" [src]="picture">
         </ion-avatar>
   			<h1 ion-text color="light">{{username}}</h1>
   	  </button>

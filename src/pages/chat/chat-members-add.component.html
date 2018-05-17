@@ -17,7 +17,7 @@
   <ion-list>
     <button ion-item no-lines *ngFor="let user of users | async" [color]="user.selected ? 'purple' : 'dark-grey'" (click)="toggleSelectUser(user)">
       <ion-avatar item-start>
-        <img src="assets/imgs/avatar.png">
+        <img [src]="user.pictureUrl">
       </ion-avatar>
 			<h5 ion-text color="light">{{user.name}}</h5>
     </button>

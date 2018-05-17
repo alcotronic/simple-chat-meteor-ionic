@@ -76,7 +76,7 @@ var devConfig = {
     extensions: ['.ts', '.js', '.json'],
     modules: [path.resolve('node_modules')],
     alias: {
-      'api': path.resolve(__dirname, 'src/api/server')
+      'api': path.resolve(__dirname, 'api/server')
     }
   },
 
@@ -129,7 +129,7 @@ var prodConfig = {
     extensions: ['.ts', '.js', '.json'],
     modules: [path.resolve('node_modules')],
     alias: {
-      'api': path.resolve(__dirname, 'src/api/server')
+      'api': path.resolve(__dirname, 'api/server')
     }
   },
 

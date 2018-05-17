@@ -5,6 +5,7 @@ import { check, Match } from 'meteor/check';
 import { Registration } from '../../models/registration.model';
 import { Profile } from '../../models/profile.model';
 import { Profiles } from '../../collections/profiles.collection';
+import { DEFAULT_AVATAR_URL } from '../../models/avatar.model';
 
 const nonEmptyString = Match.Where((str) => {
   check(str, String);
@@ -30,12 +31,18 @@ Meteor.methods({
     check(registration.password, nonEmptyString);
     check(registration.email, emailString);
 
-    if(this.userId) {
+    if(!!this.userId) {
+      return;
+    }
+
+    let account = Accounts.findUserByEmail(registration.email);
+    
+    if(!!account) {
       return;
     }
 
     let accountId: string = Accounts.createUser({username: registration.username, email: registration.email, password: registration.password});
-    Profiles.insert({userId: accountId,name: registration.username});
+    Profiles.insert({userId: accountId, name: registration.username, pictureUrl: DEFAULT_AVATAR_URL});
   }
 });
 

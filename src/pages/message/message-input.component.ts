@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { Message } from '../../api/models/message.model';
+import { Message } from '../../../api/models/message.model';
 import { MessageService } from '../../providers/message/message.service';
 import { AuthGuardService } from '../../providers/auth/auth-guard.service';
 

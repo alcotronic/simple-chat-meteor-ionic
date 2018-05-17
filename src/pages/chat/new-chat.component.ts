@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from 'ionic-angular';
 
-import { Chat } from '../../api/models/chat.model'
+import { Chat } from '../../../api/models/chat.model'
 import { ChatService } from '../../providers/chat/chat.service';
 import { AuthGuardService } from '../../providers/auth/auth-guard.service';
 import { ToastService } from '../../providers/toast/toast.service';

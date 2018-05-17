@@ -4,5 +4,6 @@ export interface Profile {
   name?: string;
   picture?: string;
   pictureId?: string;
+  pictureUrl?: string;
   selected?: boolean;
 }

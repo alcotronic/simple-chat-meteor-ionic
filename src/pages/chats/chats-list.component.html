@@ -1,7 +1,8 @@
 <ion-list *ngIf="chats">
 	<button ion-item no-lines *ngFor="let chat of chats | async" (click)="goToChat(chat)">
 		<ion-avatar item-start>
-			<img src="assets/imgs/avatar.png">
+			<!-- <img src="assets/imgs/avatar.png"> -->
+			<ion-icon name="chatbubbles" color="light" style="zoom:2.0;"></ion-icon>
 		</ion-avatar>
 		<h5 ion-text color="light">{{chat.title}}</h5>
 		<p ion-text color="light">{{chat.createdAt | date}}</p>

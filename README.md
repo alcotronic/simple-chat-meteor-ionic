@@ -8,6 +8,8 @@ meteor - https://www.meteor.com/
 
 angular-meteor - https://angular-meteor.com
 
+Meteor Client Bundler - https://github.com/Urigo/meteor-client-bundler
+
 ionic - https://ionicframework.com
 
 meteor and ionic tutorial - https://steemit.com/utopian-io/@jaysermendez/setting-up-ionic-3-with-meteorjs-backend
@@ -17,7 +19,31 @@ https://github.com/cult-of-coders/redis-oplog
 
 ## Usage
 
+### Install meteor
+
+Follow installation instructions for meteor:
+
+https://www.meteor.com/install
+
+### Install ionic cli and cordova client
+
+Open a terminal and run:
+
+```
+npm install -g ionic cordova
+```
+
+### Install Meteor Client Bundler
+
+Open a terminal and run:
+
+```
+npm install -g meteor-client-bundler
+```
+
 ### Install dependencies
+
+Open a terminal in the project folder and install npm dependencies with:
 
 ```
 npm install
@@ -31,6 +57,7 @@ Set the variables for your redis server as needed in the meteor settings file th
 
 
 ### Create client bundle
+Open a terminal in the project folder and
 ```
 npm run meteor-client:bundle
 ```

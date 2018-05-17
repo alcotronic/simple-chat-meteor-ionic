@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Meteor } from 'meteor/meteor';
 import { MeteorObservable } from 'meteor-rxjs';
 
-import { Registration } from '../../api/models/registration.model';
+import { Registration } from '../../../api/models/registration.model';
 
 @Injectable()
 export class AuthenticationService {

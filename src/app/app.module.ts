@@ -27,8 +27,10 @@ import { AccountService } from '../providers/account/account.service';
 import { AlertService } from '../providers/alert/alert.service';
 import { AuthGuardService } from '../providers/auth/auth-guard.service';
 import { AuthenticationService } from '../providers/auth/authentication.service';
+import { AvatarService } from '../providers/avatar/avatar.service';
 import { ChatService } from '../providers/chat/chat.service';
 import { MessageService } from '../providers/message/message.service';
+import { ProfileService } from '../providers/profile/profile.service';
 import { ToastService } from '../providers/toast/toast.service';
 
 @NgModule({
@@ -75,8 +77,10 @@ import { ToastService } from '../providers/toast/toast.service';
     AlertService,
     AuthGuardService,
     AuthenticationService,
+    AvatarService,
     ChatService,
     MessageService,
+    ProfileService,
     ToastService,
     Camera,
     StatusBar,

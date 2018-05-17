@@ -24,14 +24,14 @@
   },
   "include": [
     "src/**/*.ts",
-    "src/api/**/*.ts"
+    "api/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "src/**/*.spec.ts",
     "src/**/__tests__/*.ts",
-    "src/api/node_modules",
-    "src/api"
+    "api/node_modules",
+    "api"
   ],
   "compileOnSave": false,
   "atom": {
