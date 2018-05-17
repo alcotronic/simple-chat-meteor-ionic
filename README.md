@@ -4,13 +4,13 @@ This is a little chat app, inspired by the whatsapp tutorial from angular-meteor
 
 angular.io - https://angular.io
 
-meteor - https://www.meteor.com/
+Meteor - https://www.meteor.com/
 
-angular-meteor - https://angular-meteor.com
+Angular-Meteor - https://angular-meteor.com
 
 Meteor Client Bundler - https://github.com/Urigo/meteor-client-bundler
 
-ionic - https://ionicframework.com
+Ionic - https://ionicframework.com
 
 meteor and ionic tutorial - https://steemit.com/utopian-io/@jaysermendez/setting-up-ionic-3-with-meteorjs-backend
 
