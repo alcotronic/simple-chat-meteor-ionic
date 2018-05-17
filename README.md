@@ -17,6 +17,9 @@ meteor and ionic tutorial - https://steemit.com/utopian-io/@jaysermendez/setting
 RedisOplog for meteor
 https://github.com/cult-of-coders/redis-oplog
 
+UploadFS GridFS Store
+https://github.com/jalik/jalik-ufs-gridfs
+
 ## Usage
 
 ### Install meteor
