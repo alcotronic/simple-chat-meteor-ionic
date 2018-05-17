@@ -12,9 +12,9 @@ Meteor Client Bundler - https://github.com/Urigo/meteor-client-bundler
 
 Ionic - https://ionicframework.com
 
-meteor and ionic tutorial - https://steemit.com/utopian-io/@jaysermendez/setting-up-ionic-3-with-meteorjs-backend
+Meteor and Ionic tutorial - https://steemit.com/utopian-io/@jaysermendez/setting-up-ionic-3-with-meteorjs-backend
 
-RedisOplog for meteor
+RedisOplog for Meteor
 https://github.com/cult-of-coders/redis-oplog
 
 UploadFS GridFS Store
@@ -28,7 +28,7 @@ Follow installation instructions for meteor:
 
 https://www.meteor.com/install
 
-### Install ionic cli and cordova client
+### Install Ionic cli and Cordova cli
 
 Open a terminal and run:
 
