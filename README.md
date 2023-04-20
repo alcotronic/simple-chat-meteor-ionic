@@ -1,6 +1,6 @@
 # Simple chat with Meteor and Ionic 3
 
-This is a little chat app, inspired by the whatsapp tutorial from angular-meteor. This project uses the RdisOplog meteor project so a redis server is needed.
+This is a little chat app, inspired by the whatsapp tutorial from angular-meteor. This project uses the RedisOplog meteor project so a redis server is needed.
 
 angular.io - https://angular.io
 
